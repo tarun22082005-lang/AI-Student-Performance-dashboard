@@ -4,14 +4,14 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
 
-# ---------------- PAGE CONFIG ---------------- #
+
 st.set_page_config(
     page_title="AI Student Dashboard",
     page_icon="🎓",
     layout="wide"
 )
 
-# ---------------- TITLE ---------------- #
+
 st.markdown("""
 <h1 style='text-align:center;'>🎓 AI Student Performance Dashboard</h1>
 <p style='text-align:center; color:gray;'>
@@ -21,7 +21,7 @@ Machine Learning Prediction with Explainable AI
 
 st.divider()
 
-# ---------------- LOAD DATA ---------------- #
+
 df = pd.read_csv("student_ml_dataset.csv")
 
 X = df[['Attendance', 'StudyHours', 'InternalMarks']]
@@ -37,7 +37,7 @@ model.fit(X_train, y_train)
 pred = model.predict(X_test)
 accuracy = r2_score(y_test, pred)
 
-# ---------------- METRIC CARDS ---------------- #
+
 col1, col2, col3 = st.columns(3)
 
 col1.metric("📘 Students", len(df))
@@ -46,10 +46,10 @@ col3.metric("🎯 Algorithm", "Linear Regression")
 
 st.divider()
 
-# ---------------- MAIN LAYOUT ---------------- #
+
 left, right = st.columns(2)
 
-# -------- INPUT PANEL -------- #
+
 with left:
     st.subheader("🧾 Student Input")
 
@@ -59,7 +59,7 @@ with left:
 
     predict_btn = st.button("🚀 Predict Performance", use_container_width=True)
 
-# -------- OUTPUT PANEL -------- #
+
 with right:
     st.subheader("📈 Prediction Output")
 
@@ -99,6 +99,7 @@ with right:
 
         st.info("📌 Recommendation: Improve weakest parameters first for fastest growth.")
 
-# ---------------- FOOTER ---------------- #
+
 st.divider()
 st.caption("🚀 Built by Tarun | BCA Data Science | AI + ML Project")
+
